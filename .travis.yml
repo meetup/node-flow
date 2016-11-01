@@ -4,7 +4,7 @@ language: bash
 # exclude tags.
 branches:
   except:
-    - /^\d+.\d+.\d+$/
+    - /^v\d+.\d+.\d+$/
 
 services:
   - docker
@@ -23,7 +23,7 @@ before_install:
   - export CI_BUILD_NUMBER=$(if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then echo $CI_BUILD_NUMBER; else echo "${TRAVIS_BUILD_NUMBER}-SNAPSHOT"; fi)
   - echo "CI_BUILD_NUMBER=${CI_BUILD_NUMBER}"
 
-  - if [ -n "$DOCKER_LOGIN" ]; then docker login --email not@val.id --username $DOCKER_LOGIN --password $DOCKER_PASS; fi
+  - if [ -n "$DOCKER_LOGIN" ]; then docker login --username $DOCKER_USER --password $DOCKER_PASS; fi
 
 script:
   - make $(if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then echo publish; else echo package; fi)
@@ -31,7 +31,7 @@ script:
 after_success:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
-  - export GIT_TAG=$(make version)
+  - export GIT_TAG=v$(make version)
   - echo "GIT_TAG=$GIT_TAG"
   - >
     [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ] &&
