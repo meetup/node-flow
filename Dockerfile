@@ -1,4 +1,4 @@
-FROM node:6.5.0
+FROM node:6.9.4
 
 RUN rm -rf /var/lib/apt/lists/* \
   && apt-get update \
