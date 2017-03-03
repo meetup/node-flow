@@ -36,4 +36,6 @@ after_success:
     [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ] &&
     git push -q https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG --tags || true
   # Trigger microbadger to update badges
-  - curl -d "" https://hooks.microbadger.com/images/meetup/node-flow/NVNBp6UszPv1NzVIfEJz8FJPrHE\=
+  - >
+    [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ] &&
+    curl -d "" https://hooks.microbadger.com/images/meetup/node-flow/NVNBp6UszPv1NzVIfEJz8FJPrHE\= || true
