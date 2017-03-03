@@ -1,9 +1,10 @@
 PROJECT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 CI_BUILD_NUMBER ?= $(USER)-snapshot
 
-VERSION ?= 0.39.0
+VERSION ?= 0.0.$(CI_BUILD_NUMBER)
+FLOW_VERSION ?= 0.40.0
 
-PUBLISH_TAG=meetup/node-flow:$(VERSION)
+PUBLISH_TAG=meetup/node-flow:$(FLOW_VERSION)-$(VERSION)
 
 # lists all available targets
 list:
