@@ -33,7 +33,7 @@ publish: package
 	@docker push $(PUBLISH_TAG)
 
 version:
-	@echo $(VERSION)
+	@echo $(FLOW_VERSION)-$(VERSION)
 
 publish-tag:
 	@echo $(PUBLISH_TAG)
