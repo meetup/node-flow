@@ -2,7 +2,7 @@ PROJECT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 CI_BUILD_NUMBER ?= $(USER)-snapshot
 
 VERSION ?= 0.0.$(CI_BUILD_NUMBER)
-FLOW_VERSION ?= 0.40.0
+FLOW_VERSION ?= 0.44.2
 
 PUBLISH_TAG=meetup/node-flow:$(FLOW_VERSION)-$(VERSION)
 
