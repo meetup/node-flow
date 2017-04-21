@@ -5,7 +5,7 @@ RUN rm -rf /var/lib/apt/lists/* \
   && apt-get install -y ocaml libelf-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  && yarn global add flow-bin@0.44.1
+  && yarn global add flow-bin@0.44.2
 
 VOLUME /app
 WORKDIR /app
