@@ -1,4 +1,4 @@
-FROM node:8.1.0
+FROM node:8.16-alpine
 
 RUN rm -rf /var/lib/apt/lists/* \
   && apt-get update \

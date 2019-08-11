@@ -2,7 +2,12 @@
 All notable changes to this project will
 be documented in this file.
 
-## [0.40.0-0.0.x]
+## [0.105.167-0.105.x]
+
+- Updated `node` to `v8.16-alpine`
+- Updated `flow-bin` to `v0.105.0`
+
+## [0.40.x]
 ### Added
 - New versioning in form of `node-flow:FLOW_VERSION-BUILD_VERSION`
 - Updated `node` to `v7.7.1`
