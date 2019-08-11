@@ -1,4 +1,4 @@
-FROM node:8.16-alpine
+FROM node:8.16-jessie-slim
 
 ENV FLOW_VERSION 0.105.0
 
