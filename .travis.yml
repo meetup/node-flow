@@ -12,6 +12,7 @@ services:
 env:
   global:
     - CI_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
+    - secure: "Rkc8GQZhSjrYwP0LETWFbUBtRIeVa0PT4QepIBW8706pec2crC6pwCoqO7RGzqsJ5paThSddEIdPRYVw8g9UH2Pb0ty5UWtMcO1O3PSzEOQdc7h7fMZ8JETfXy9aLZ3RluokghN9/uC8lWkX3KUc219yi/DBAlUO7FvtAa9sPGCoXYu7tbi4n7wPqmKAFQc90FX9g7oLbHu2BDvsSt58g56ibvBjnfqDC40WYy+6LSxDHm+2TANHnM54xrfm15pRuTFhXHzC7/D2CQk/D4VCg0pDZ4pYOMBO4x6436o66HBSnDan0lFHiv7XlruufFWXW/TLAgFCSPPceZcK8a1wCLkhFHwAMJIAJJsVPx1og6d+AeFeAi715cV8j5hUhfFqhAXKD/3fplmlQBclMJ75TL0VytwX7xcknyuAJDxVNRSKg+LyENP7o8kxUrPakCrI7AVqerbgx0MWHMd30nt3esqgxDakcMI+oCXzVFaXHgymH2M7UFhW0YtoZgLfTVwP8ZzQjC0tfRzLLoF4Mi33B3ZMtcWRppqJ8F1HNQy9BnDWKW36dWfB4slz2GURu0rFe/VkXCIh5FFPN2ZaKeoAzLLuAPXYgqLVQ0yskLnWsW9uxDabgvCbVePJCcS4qM3JJUpp7GFWk8ExNojxDMPJzPwBVZQb34ZaXwuRVSIBtqs="
 
 before_install:
 
@@ -28,6 +29,10 @@ after_success:
   - git config --global user.name "Travis CI"
   - export GIT_TAG=v$(make version)
   - echo "GIT_TAG=$GIT_TAG"
+  - |
+      $(npm bin)/set-up-ssh --key "$encrypted_968e342f6a39_key" \
+                            --iv "$encrypted_968e342f6a39_iv" \
+                            --path-encrypted-key ".travis/github_deploy_key.enc"
   - >
     [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ] &&
     git tag $GIT_TAG -f -a -m "Version $GIT_TAG built by Travis CI - https://travis-ci.org/$TRAVIS_REPO_SLUG/jobs/$TRAVIS_JOB_ID"
