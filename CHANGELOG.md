@@ -2,7 +2,7 @@
 All notable changes to this project will
 be documented in this file.
 
-## [0.105.167-0.105.x]
+## [0.105.0-x]
 
 - Updated `node` to `v8.16-alpine`
 - Updated `flow-bin` to `v0.105.0`
