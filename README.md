@@ -1,3 +1,7 @@
+# **DEPRECATED** - no longer actively maintained
+
+---
+
 # node-flow
 [![Build Status](https://travis-ci.org/meetup/node-flow.svg?branch=master)](https://travis-ci.org/meetup/node-flow)
 [![](https://images.microbadger.com/badges/version/meetup/node-flow.svg)](https://microbadger.com/images/meetup/node-flow "Get your own version badge on microbadger.com")
